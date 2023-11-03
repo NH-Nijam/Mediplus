@@ -1,0 +1,23 @@
+.list-hover {
+    text-decoration: none;
+    color: #2C2D3F;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+
+  .list-hover::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #1A76D1;
+    bottom: 0;
+    left: 0;
+    transition: all 0.4s ease;
+  }
+
+  .list-hover:hover::before {
+    color: #1A76D1 ;
+    width: 100%;
+    left: 0;
+  }
