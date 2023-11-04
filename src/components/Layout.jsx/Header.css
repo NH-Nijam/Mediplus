@@ -3,6 +3,7 @@
     color: #2C2D3F;
     position: relative;
     transition: all 0.4s ease;
+    bottom: 0;
   }
 
   .list-hover::before {
@@ -11,8 +12,9 @@
     width: 0;
     height: 3px;
     background-color: #1A76D1;
-    bottom: 0;
+    bottom:-10;
     left: 0;
+    top: 40px;
     transition: all 0.4s ease;
   }
 
@@ -20,4 +22,5 @@
     color: #1A76D1 ;
     width: 100%;
     left: 0;
+    bottom: -10px;
   }
