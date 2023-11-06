@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {
@@ -8,6 +8,7 @@ import {
 import Layout from './components/Layout.jsx/Layout';
 import Home from './components/Pages/Homes/Home';
 import Login from './components/Pages/Login';
+
 const router =createBrowserRouter([
   {
     path:'/',
@@ -19,14 +20,28 @@ const router =createBrowserRouter([
       },
       {
         path:'/login',
-        element:<Login/>
+        element:<Login />
       }
     ]
   }
 ])
 
+export  const Authcontext = createContext()
+
+const App = ({children})=>{
+  const [auth, setAuth] = useState({})
+ 
+
+  return <Authcontext.Provider value={[auth, setAuth]}>
+    {
+      children
+    }
+  </Authcontext.Provider>
+}
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router}/>
-  </React.StrictMode>,
+  <App>
+      <RouterProvider router={router}/>
+  </App>,
 )
+

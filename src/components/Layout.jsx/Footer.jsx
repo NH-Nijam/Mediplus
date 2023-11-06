@@ -69,7 +69,7 @@ const Footer = () => {
                     <div className='bg-white h-[3px] w-12 my-3'></div> 
                     <p className='mt-10'>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
                     <div className='h-14 flex rounded-lg border mt-5 text-white justify-between  items-center'>
-                        <input className='bg-transparent ps-5 h-14  rounded-s-lg 'placeholder='Your email address' type="gmail" />
+                        <input className='bg-transparent ps-5 h-14 outline-none rounded-s-lg 'placeholder='Your email address' type="gmail" />
                         <button className='h-14 w-20 flex justify-center items-center bg-white rounded-r-lg'><FaPaperPlane className='text-[#176ABC] text-2xl' /></button>
                     </div>
                 </div>

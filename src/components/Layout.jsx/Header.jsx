@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../img/logo.png'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
-
 import './Header.css'
-
+import { Authcontext } from '../../main';
+import { Tooltip } from 'antd';
 
     const Header = () => {
         const [show,setShow] =useState(false)
+        const [auth, ] = useContext(Authcontext)
+        const LogOut =()=>{
+            const auth = getAuth();
+            signOut(auth).then(() => {
+              // Sign-out successful.
+            }).catch((error) => {
+              // An error happened.
+            });
+        }
+
+        console.log(auth);
         return(
             <div className='h-20  sticky top-0 bg-white z-10 flex '>
                 <div className='container mx-auto flex  justify-between items-center   '>
@@ -31,15 +42,32 @@ import './Header.css'
                         <li className=' list-hover w-[100px] lg:w-full'>
                             <Link to='/Blogs'>Blogs</Link>
                         </li>
-                        <li className=' list-hover w-[100px] lg:w-full lg:border'>
-                            <Link to='/contactus'>Contact</Link>
+                        <li className=' list-hover w-[100px] lg:w-full '>
+                            <Link to='/contactus'>ContactUs</Link>
                         </li>   
                         <li className=' list-hover w-[100px] lg:w-full'>
-                            <Link to='/login'>Login</Link>
+                            {
+                                auth.displayName? <Link to ='/'onClick={LogOut}>SignOut</Link>: <Link to='/login'>SignUp</Link>
+                            }
                         </li>
                     </ul>
                    
                 </div>
+                {
+                    auth.displayName? <Tooltip title={
+                    <div className='w-[200px] px-2 py-4'>
+                       <h1 className='text-white text-center underline font-semibold text-base'>Mediplus Account</h1>
+                       <div className='mt-4'>
+                            <h3>{auth?.displayName}</h3>
+                            <h4>{auth?.email}</h4>
+                       </div>
+                    </div>
+                    }>
+                    <div className='w-[40px] h-[40px] border-2 border-[#176ABC] rounded-full'>
+                    <img className='rounded-full w-full' src={auth?.photoURL} alt="" />
+                </div></Tooltip> :''
+                }
+                
 
                 <div className='lg:flex hidden'>
                     <button className='btnt text-[20px] font-bold bg-[#176ABC]  text-white    rounded-lg '>Get Appointment</button>
