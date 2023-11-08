@@ -43,22 +43,13 @@ const Login = () => {
             console.log("error", error);
         });
     }
-    //  From handler
-    const SignUp =(values)=>{
-        e.preventDefault();
+    // Siign UP  Handler
+    const SignUpHandler =(e)=>{
+        e.preventDefault()
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            setAuth(user)
-           navigate('/')
-        })
-        .catch((error) => {
-            console.log('error', error);
-        });
+        console.log("name = ", name, "email = ", email, "password = ", password)
     }
   
     return (
@@ -75,7 +66,7 @@ const Login = () => {
                                 action === "Sign In"? <p className='text-[12px] my-3'>Hey enter your details to sign in your account</p>:<p className='text-[12px] my-3'>Hey enter your details to create your account</p>
                             }
                         </div>
-                        <form onClick={(e)=>SignUp(e)}>
+                        <form >
                             {
                                 action ==="Sign In"? <div></div>:<div className='border px-3 w-full h-[40px] flex items-center gap-2   rounded-md bg-transparent my-4'>
                                 <UserIcon className="h-6 w-6  " />
@@ -104,7 +95,7 @@ const Login = () => {
                                 action === "Sign In"? <div className=' w-full h-[40px] flex items-center gap-2  px-3 rounded-md my-4 bg-blue-800 text-white justify-center font-bold '>
                                 <button  type='submit'>Sign in</button>
                                 </div>:<div className=' w-full h-[40px] flex items-center gap-2  ps-3 rounded-md my-4 bg-blue-800 text-white justify-center font-bold'>
-                                <button type='submit'>Sign Up</button>
+                                <button type='submit' onSubmit={(e)=>SignUpHandler(e)}>Sign Up</button>
                             </div>
                             }                                  
                         </form>

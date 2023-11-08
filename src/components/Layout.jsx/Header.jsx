@@ -8,7 +8,8 @@ import { Tooltip } from 'antd';
 
     const Header = () => {
         const [show,setShow] =useState(false)
-        const [auth, ] = useContext(Authcontext)
+        const [auth, setAuth] = useContext(Authcontext)
+        console.log(auth);
         const LogOut =()=>{
             const auth = getAuth();
             signOut(auth).then(() => {
@@ -17,8 +18,7 @@ import { Tooltip } from 'antd';
               // An error happened.
             });
         }
-
-        console.log(auth);
+      
         return(
             <div className='h-20  sticky top-0 bg-white z-10 flex '>
                 <div className='container mx-auto flex  justify-between items-center   '>
@@ -47,7 +47,7 @@ import { Tooltip } from 'antd';
                         </li>   
                         <li className=' list-hover w-[100px] lg:w-full'>
                             {
-                                auth.displayName? <Link to ='/'onClick={LogOut}>SignOut</Link>: <Link to='/login'>SignUp</Link>
+                                auth.displayName? <Link to ='/SignUp'onClick={LogOut}>SignOut</Link>: <Link to='SignUp'>SignUp</Link>
                             }
                         </li>
                     </ul>
@@ -70,7 +70,8 @@ import { Tooltip } from 'antd';
                 
 
                 <div className='lg:flex hidden'>
-                    <button className='btnt text-[20px] font-bold bg-[#176ABC]  text-white    rounded-lg '>Get Appointment</button>
+                    
+                    <Link to={`${auth.displayName? '/bookappoin':'/SignUp'}`} className='btnt'>Book Appointment</Link>
                 </div>
                 <div onClick={()=>setShow(!show)} className='lg:hidden'>
                     <span>{show === true ?  <XMarkIcon className="h-8 w-8 text-[#176ABC]" /> :  <Bars3Icon className="h-8 w-8 text-[#176ABC]" />}</span>

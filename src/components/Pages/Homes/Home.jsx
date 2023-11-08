@@ -1,9 +1,17 @@
 import React from 'react';
+import CarouselPage from './CarouselPage';
+import Parts from './Parts';
+import Scrollbar from './Scrollbar';
 
 const Home = () => {
+   
     return (
-        <div className='container mx-auto'>
-            <h1>Home page</h1>
+        <div>
+            <CarouselPage/>
+            <Parts/>
+
+            {/* scroll Bar  */}
+            <Scrollbar/>
         </div>
     );
 };

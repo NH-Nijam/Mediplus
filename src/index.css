@@ -15,7 +15,7 @@
 .btnt {
 	color: #fff;
 	padding: 13px 25px;
-	font-size: 14px;
+	font-size: 18px;
 	text-transform: capitalize;
 	font-weight: 500;
 	background: #1A76D1;
@@ -57,9 +57,11 @@
 	transform: scaleX(1);
 }
 /*  */
-.btnn {
+
+.btns {
 	color: #fff;
-	font-size: 14px;
+	padding: 13px 25px;
+	font-size: 18px;
 	text-transform: capitalize;
 	font-weight: 500;
 	background: #2C2D3F;
@@ -75,10 +77,10 @@
 	border-radius: 0;
 	border-radius:4px;
 }
-.btnn:hover{
+.btns:hover{
 	color:#fff;
 }
-.btnn:before{
+.btns:before{
 	content: "";
 	position: absolute;
 	z-index: -1;
@@ -96,7 +98,24 @@
 	transition:all 0.4s ease;
 	border-radius:4px;
 }
-.btnn:hover:before{
+.btns:hover:before{
 	-webkit-transform: scaleX(1);
 	transform: scaleX(1);
+}
+
+/* scrollig button  */
+.scroll{
+	position: fixed;
+	padding: 2px 2px;
+	border-radius: 4px ;
+	bottom: 10px;
+	box-shadow: 0px 0px 1px 1px gray;
+	right: 20px;
+	background-color: #1A75D1;
+	color: #fff;
+	text-align: center;
+}
+.scroll:hover{
+	background-color: black;
+	transition: .5s ease-in-out;
 }

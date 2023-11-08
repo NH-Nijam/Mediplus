@@ -8,6 +8,7 @@ import {
 import Layout from './components/Layout.jsx/Layout';
 import Home from './components/Pages/Homes/Home';
 import Login from './components/Pages/Login';
+import BookAppoin from './components/Pages/BookAppoin';
 
 const router =createBrowserRouter([
   {
@@ -19,8 +20,12 @@ const router =createBrowserRouter([
         element:<Home/>
       },
       {
-        path:'/login',
+        path:'/SignUp',
         element:<Login />
+      },
+      {
+        path:'/bookappoin',
+        element:<BookAppoin/>
       }
     ]
   }
