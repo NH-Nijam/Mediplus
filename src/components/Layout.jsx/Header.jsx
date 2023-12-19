@@ -23,7 +23,7 @@ import { Tooltip } from 'antd';
             <div className='h-20  sticky top-0 bg-white z-10 flex '>
                 <div className='container mx-auto flex  justify-between items-center   '>
                 <div>
-                    <img src={Logo} alt="" />
+                    <Link to='/'><img src={Logo} alt="" /></Link>
                 </div>
                 <div>
                     <ul className={`lg:flex absolute lg:static gap-8 py-10 lg:py-0 font-semibold lg:text-black w-[300px] bg-white   duration-500  lg:w-full items-center flex flex-col lg:flex-row  ${show ? '-left-1  top-[78px]': '-left-80  top-20 '} `}>
